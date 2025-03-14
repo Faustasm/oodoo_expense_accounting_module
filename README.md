@@ -14,7 +14,7 @@ docker-compse up -d
 Alternatively copy the module folder to local odoo enviornment and install external dependencies
 
 ```
-All supported languages can be seen here https://www.jaided.ai/easyocr/
+
 
 2. Open http://localhost:8069
 ```

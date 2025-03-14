@@ -8,7 +8,7 @@ docker-compose
 
 ### Full usage example
 
-1. From directory where docker-compose resides run:
+1. From directory where docker-compose.yml resides run:
 ```
 docker-compse up -d
 Alternatively copy the module folder to local odoo enviornment and install external dependencies

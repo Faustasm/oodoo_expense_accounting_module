@@ -29,11 +29,6 @@ Alternatively assign to one of the groups in settings with the same user databas
 
 ```
 
-3. From root directory start docker container
-```
-docker-compose up -d
-```
-
 
 ### Known Issues
 

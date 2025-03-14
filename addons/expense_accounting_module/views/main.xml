@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="expense_form_view" model="ir.ui.view">
+        <field name="name">eam.expense.form</field>
+        <field name="model">eam.expense</field>
+        <field name="arch" type="xml">
+            <form string="Expense form">
+                <group>
+                    <field name="description"/>
+                    <field name="amount"/>
+                    <field name="currency_id"/>
+                    <field name="category"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="expense_tree_view" model="ir.ui.view">
+        <field name="name">eam.expense.tree</field>
+        <field name="model">eam.expense</field>
+        <field name="arch" type="xml">
+            <tree string="Expense Tree">
+                <field name="description"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+                <field name="category"/>
+                <field name="converted_amount"/>
+                <field name="status"/>
+                <button name="action_confirm" type="object" string="Confirm" class="oe_highlight"/>
+            </tree>
+        </field>
+    </record>
+    <record id="expense_graph_view" model="ir.ui.view">
+        <field name="name">eam.expense.graph</field>
+        <field name="model">eam.expense</field>
+        <field name="arch" type="xml">
+            <graph string="Expense amount by category" type="bar">
+                <field name="converted_amount" group="True"/>
+                <field name="category" operator="*"/>
+            </graph>
+        </field>
+    </record>
+    <record id="expense_pie_view" model="ir.ui.view">
+        <field name="name">eam.expense.graph</field>
+        <field name="model">eam.expense</field>
+        <field name="arch" type="xml">
+            <graph string="Expenses by confirmation" type="pie">
+                <field name="status" group="True"/>
+                <field name="category" operator="*"/>
+            </graph>
+        </field>
+    </record>
+    <record id="budget_form_view" model="ir.ui.view">
+        <field name="name">eam.budget.form</field>
+        <field name="model">eam.budget</field>
+        <field name="arch" type="xml">
+            <form string="Expense form">
+                <group>
+                    <field name="description"/>
+                    <field name="amount"/>
+                    <field name="currency_id"/>
+                    <field name="category"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="budget_tree_view" model="ir.ui.view">
+        <field name="name">eam.budget.tree</field>
+        <field name="model">eam.budget</field>
+        <field name="arch" type="xml">
+            <tree string="Expense Tree">
+                <field name="description"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+                <field name="category"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="converted_amount"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

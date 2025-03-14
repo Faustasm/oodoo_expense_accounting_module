@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="res.groups" id="group_expense_admins">
+            <field name="name">Expense Admin</field>
+        </record>
+
+        <record model="res.groups" id="group_expense_financeers">
+            <field name="name">Expense Financeer</field>
+        </record>
+
+        <record model="res.groups" id="group_expense_managers">
+            <field name="name">Expense Manager</field>
+        </record>
+
+        <record model="res.groups" id="group_expense_employees">
+            <field name="name">Expense Employee</field>
+        </record>
+
+        <record model="res.users" id="group_expense_admin_user">
+            <field name="login">admin</field>
+            <field name="password">admin</field>
+            <field name="name">Expense Admin</field>
+            <field name="email">admin@example.com</field>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('expense_accounting_module.group_expense_admins')])]"/>
+        </record>
+
+        <record model="res.users" id="group_budget_financeer_user">
+            <field name="login">financeer</field>
+            <field name="password">financeer</field>
+            <field name="name">Financeer Employee</field>
+            <field name="email">financeer@example.com</field>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('expense_accounting_module.group_expense_financeers')])]"/>
+        </record>
+
+        <record model="res.users" id="group_expense_manager_user">
+            <field name="login">manager</field>
+            <field name="password">manager</field>
+            <field name="name">Expense Manager</field>
+            <field name="email">manager@example.com</field>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('expense_accounting_module.group_expense_managers')])]"/>
+        </record>
+
+        <record model="res.users" id="group_expense_employee_user">
+            <field name="login">employee</field>
+            <field name="password">employee</field>
+            <field name="name">Expense Employee</field>
+            <field name="email">employee@example.com</field>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('expense_accounting_module.group_expense_employees')])]"/>
+        </record>
+
+    </data>
+</odoo>

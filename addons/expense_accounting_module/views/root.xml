@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem name="Expense accounting" id="expense_accounting_root_menu"/>
+    <record model="ir.actions.act_window" id="action_list_expenses">
+        <field name="name">Expenses</field>
+        <field name="res_model">eam.expense</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+    <menuitem id="menu_expenses" name="Expense records" parent="expense_accounting_root_menu" sequence="1"
+            action="action_list_expenses"/>
+    
+    <menuitem name="Budget accounting" id="budget_accounting_root_menu"/>
+    <record model="ir.actions.act_window" id="action_list_budget">
+        <field name="name">Budget</field>
+        <field name="res_model">eam.budget</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_budget" name="Budget records" parent="expense_accounting_root_menu" sequence="2"
+            action="action_list_budget"/>
+        
+    <record id="action_expense_graph_view" model="ir.actions.act_window">
+        <field name="name">Expense graph view</field>
+        <field name="res_model">eam.expense</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="expense_graph_view"/>
+    </record>
+    <record id="action_expense_pie_view" model="ir.actions.act_window">
+        <field name="name">Expense pie view</field>
+        <field name="res_model">eam.expense</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="expense_pie_view"/>
+    </record>
+    <record id="action_expense_tree_view" model="ir.actions.act_window">
+        <field name="name">Sale Order Pivot</field>
+        <field name="res_model">eam.expense</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="expense_tree_view"/>
+    </record>
+
+    <menuitem name="Expense dashboard" id="expense_dashboard_root_menu"/>
+    <record model="ir.ui.view" id="simple_dashboard_view">
+        <field name="name">Simple Dashboard</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="My Dashboard">
+                <board style="1-1">
+                    <column>
+                        <action name="%(expense_accounting_module.action_expense_graph_view)d" string="Expense graph view"/>
+                        <action name="%(expense_accounting_module.action_expense_pie_view)d" string="Expense pie view"/>
+                    </column>
+                    <column>
+                        <action name="%(expense_accounting_module.action_expense_tree_view)d" string="Expense tree view"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="open_simple_dashboard_action">
+        <field name="name">My Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="simple_dashboard_view"/>
+    </record>
+    <menuitem
+        name="Expense Dashboard"
+        parent="expense_accounting_root_menu"
+        action="open_simple_dashboard_action"
+        sequence="3"
+        id="dashboard_menu"
+    />
+</odoo>

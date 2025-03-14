@@ -1,5 +1,5 @@
 # expense_accounting_module
-Simple telegram translator bot that uses easyocr, pillow and google translate package to translate messages and photos that have text to desired output language
+Expense accounting module for interview task
 ### Requirements
 ```
 docker
